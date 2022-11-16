@@ -7,4 +7,12 @@ public class CommandDelFriends implements CommandI {
     public void execute() {
 
     }
+
+    @Override
+    public String toString() {
+        return "CommandDelFriends{" +
+                "user1='" + user1 + '\'' +
+                ", user2='" + user2 + '\'' +
+                '}';
+    }
 }

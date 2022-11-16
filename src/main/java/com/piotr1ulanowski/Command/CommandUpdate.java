@@ -10,4 +10,13 @@ public class CommandUpdate implements CommandI {
     public void execute() {
 
     }
+
+    @Override
+    public String toString() {
+        return "CommandUpdate{" +
+                "user='" + user + '\'' +
+                ", timestamp=" + timestamp +
+                ", values=" + values +
+                '}';
+    }
 }
