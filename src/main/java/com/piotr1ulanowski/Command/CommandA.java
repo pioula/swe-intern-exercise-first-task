@@ -1,4 +1,5 @@
 package com.piotr1ulanowski.Command;
 
-public abstract class CommandA {
+public interface CommandA {
+    void execute();
 }
