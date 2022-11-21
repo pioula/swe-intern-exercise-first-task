@@ -6,12 +6,12 @@ import java.util.HashMap;
 import java.util.Optional;
 
 public class CommandDelFriends implements CommandI {
-    private String user1;
-    private String user2;
+    private final String user1;
+    private final String user2;
 
-    public CommandDelFriends(String _user1, String _user2) {
-        user1 = _user1;
-        user2 = _user2;
+    public CommandDelFriends(final String user1, final String user2) {
+        this.user1 = user1;
+        this.user2 = user2;
     }
 
     // Removing users from friend lists of each user.
