@@ -37,6 +37,8 @@ public class User {
     }
 
     public User(String ID) {
+        friends = new HashSet<>();
+        properties = new HashMap<>();
         this.ID = ID;
     }
 }
