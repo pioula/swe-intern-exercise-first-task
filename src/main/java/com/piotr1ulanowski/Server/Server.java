@@ -14,6 +14,7 @@ public class Server {
 
     public Server(final String path) {
         reader = new FileReader(path);
+        users = new HashMap<>();
     }
     // Starts the simulation of receiving the requests.
     public void startSimulation() {
