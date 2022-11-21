@@ -20,9 +20,13 @@ public class CommandUpdate implements CommandI {
     // Removing users from friend lists of each user.
     @Override
     public Optional<String> execute(HashMap<String, User> users) {
+        if (!users.containsKey(user))
+            users.put(user, new User(user));
+
+        User userObject = users.get(user);
         HashMap<String, String> addedValues = new HashMap<>();
         values.forEach((propertyName, value) -> {
-            if (users.get(user).addProperty(propertyName, new UserProperty(value, timestamp)))
+            if (userObject.addProperty(propertyName, new UserProperty(value, timestamp)))
                 addedValues.put(propertyName, value);
         });
 

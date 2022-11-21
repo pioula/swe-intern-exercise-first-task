@@ -17,6 +17,11 @@ public class CommandDelFriends implements CommandI {
     // Removing users from friend lists of each user.
     @Override
     public Optional<String> execute(HashMap<String, User> users) {
+        if (!users.containsKey(user1))
+            users.put(user1, new User(user1));
+        if (!users.containsKey(user2))
+            users.put(user2, new User(user2));
+
         users.get(user1).removeFriend(user2);
         users.get(user2).removeFriend(user1);
 
