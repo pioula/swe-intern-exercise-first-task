@@ -26,11 +26,13 @@ public class CommandUpdate implements CommandI {
         User userObject = users.get(user);
         HashMap<String, String> addedValues = new HashMap<>();
         values.forEach((propertyName, value) -> {
-            if (userObject.addProperty(propertyName, new UserProperty(value, timestamp)))
+            if (!userObject.addProperty(propertyName, new UserProperty(value, timestamp)))
                 addedValues.put(propertyName, value);
         });
 
-        return Optional.ofNullable(addedValues.toString() == null ? addedValues.toString() : "");
+        users.put(user, userObject);
+
+        return Optional.ofNullable(addedValues.toString() == null ? "" : addedValues.toString());
     }
 
     @Override

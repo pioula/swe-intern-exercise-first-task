@@ -12,12 +12,14 @@ public class User {
         return properties;
     }
 
+    // Returns true if value was already present.
     public Boolean addProperty(String name, UserProperty value) {
         if (!properties.containsKey(name) || properties.get(name).getTimestamp() < value.getTimestamp()) {
             properties.put(name, value);
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     public void addFriend(String friendId) {
