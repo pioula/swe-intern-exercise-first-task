@@ -5,10 +5,12 @@ import com.piotr1ulanowski.Command.CommandJSONParser;
 import com.piotr1ulanowski.FIleReader.FileReader;
 import com.piotr1ulanowski.User.User;
 
+import java.util.HashMap;
+
 public class Server {
     private final CommandJSONParser parser = new CommandJSONParser();
     private final FileReader reader;
-    private User users;
+    private HashMap<String, User> users; // User ID maps to user
 
     public Server(final String path) {
         reader = new FileReader(path);
