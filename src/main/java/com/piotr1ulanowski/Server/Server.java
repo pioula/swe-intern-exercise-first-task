@@ -20,6 +20,7 @@ public class Server {
         while (reader.hasLine()) {
             CommandI command = parser.deserialize(reader.readLine());
             var t = command.execute(users);
+            t.ifPresent(System.out::println);
         }
     }
 }
