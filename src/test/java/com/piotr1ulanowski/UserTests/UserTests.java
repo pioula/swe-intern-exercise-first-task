@@ -1,8 +1,5 @@
 package com.piotr1ulanowski.UserTests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import com.piotr1ulanowski.User.User;
 import com.piotr1ulanowski.User.UserProperty;
 import org.junit.jupiter.api.DisplayName;
@@ -10,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 import java.util.Properties;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class UserTests {
     @DisplayName("Should add a property with a bigger timestamp.")
@@ -50,5 +49,29 @@ class UserTests {
                 testUser.getProperties().get(PROPERTY_NAME).getName().equals(FIRST_UPDATE.getName()));
     }
 
+    @DisplayName("Should have a friend after adding one.")
+    @Test
+    void testAddingAFriend_WhenAddedFriend_ShouldContainAFriend() {
+        final String USER1_ID = "test1_id";
+        final String USER2_ID = "test2_id";
+
+        User test1User = new User(USER1_ID);
+        test1User.addFriend(USER2_ID);
+
+        assertTrue(test1User.getFriends().contains(USER2_ID));
+    }
+
+    @DisplayName("Should not have a friend after deleting one.")
+    @Test
+    void testDeletingAFriend_WhenDeletesFriend_ShouldNotContainAFriend() {
+        final String USER1_ID = "test1_id";
+        final String USER2_ID = "test2_id";
+
+        User test1User = new User(USER1_ID);
+        test1User.addFriend(USER2_ID);
+        test1User.removeFriend(USER2_ID);
+
+        assertFalse(test1User.getFriends().contains(USER2_ID));
+    }
 }
 
