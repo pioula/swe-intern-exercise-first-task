@@ -16,12 +16,4 @@ public class UserProperty {
     public String getName() {
         return name;
     }
-
-    @Override
-    public String toString() {
-        return "UserProperty{" +
-                "name='" + name + '\'' +
-                ", timestamp=" + timestamp +
-                '}';
-    }
 }
