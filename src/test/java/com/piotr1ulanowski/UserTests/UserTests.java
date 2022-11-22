@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
-import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,12 +13,11 @@ class UserTests {
     @DisplayName("Should add a property with a bigger timestamp.")
     @Test
     void testAddingProperty_WhenBiggerTimestamp_ShouldUpdateTheProperty() {
-        final String USER_ID = "test_id";
         final String PROPERTY_NAME = "test_property";
         final UserProperty FIRST_UPDATE = new UserProperty("test1", 1);
         final UserProperty SECOND_UPDATE = new UserProperty("test2", 2);
 
-        User testUser = new User(USER_ID);
+        User testUser = new User();
 
         testUser.addProperty("test_property", FIRST_UPDATE);
         testUser.addProperty("test_property", SECOND_UPDATE);
@@ -33,12 +31,11 @@ class UserTests {
     @DisplayName("Should not add a property with a smaller timestamp.")
     @Test
     void testAddingProperty_WhenSmallerTimestamp_ShouldNotUpdateTheProperty() {
-        final String USER_ID = "test_id";
         final String PROPERTY_NAME = "test_property";
         final UserProperty FIRST_UPDATE = new UserProperty("test1", 2);
         final UserProperty SECOND_UPDATE = new UserProperty("test2", 1);
 
-        User testUser = new User(USER_ID);
+        User testUser = new User();
 
         testUser.addProperty("test_property", FIRST_UPDATE);
         testUser.addProperty("test_property", SECOND_UPDATE);
@@ -52,10 +49,9 @@ class UserTests {
     @DisplayName("Should have a friend after adding one.")
     @Test
     void testAddingAFriend_WhenAddedFriend_ShouldContainAFriend() {
-        final String USER1_ID = "test1_id";
         final String USER2_ID = "test2_id";
 
-        User test1User = new User(USER1_ID);
+        User test1User = new User();
         test1User.addFriend(USER2_ID);
 
         assertTrue(test1User.getFriends().contains(USER2_ID));
@@ -64,10 +60,9 @@ class UserTests {
     @DisplayName("Should not have a friend after deleting one.")
     @Test
     void testDeletingAFriend_WhenDeletesFriend_ShouldNotContainAFriend() {
-        final String USER1_ID = "test1_id";
         final String USER2_ID = "test2_id";
 
-        User test1User = new User(USER1_ID);
+        User test1User = new User();
         test1User.addFriend(USER2_ID);
         test1User.removeFriend(USER2_ID);
 

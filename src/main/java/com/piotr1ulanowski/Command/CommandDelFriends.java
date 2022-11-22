@@ -18,21 +18,13 @@ public class CommandDelFriends implements CommandI {
     @Override
     public Optional<String> execute(HashMap<String, User> users) {
         if (!users.containsKey(user1))
-            users.put(user1, new User(user1));
+            users.put(user1, new User());
         if (!users.containsKey(user2))
-            users.put(user2, new User(user2));
+            users.put(user2, new User());
 
         users.get(user1).removeFriend(user2);
         users.get(user2).removeFriend(user1);
 
         return Optional.empty();
-    }
-
-    @Override
-    public String toString() {
-        return "CommandDelFriends{" +
-                "user1='" + user1 + '\'' +
-                ", user2='" + user2 + '\'' +
-                '}';
     }
 }

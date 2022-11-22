@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class User {
-    final private String ID;
     private HashSet<String> friends; // Stores friend IDs
     private HashMap<String, UserProperty> properties;
 
@@ -34,13 +33,8 @@ public class User {
         return friends;
     }
 
-    public String getID() {
-        return ID;
-    }
-
-    public User(String ID) {
+    public User() {
         friends = new HashSet<>();
         properties = new HashMap<>();
-        this.ID = ID;
     }
 }

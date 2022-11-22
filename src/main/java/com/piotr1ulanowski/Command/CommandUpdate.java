@@ -23,7 +23,7 @@ public class CommandUpdate implements CommandI {
     @Override
     public Optional<String> execute(HashMap<String, User> users) {
         if (!users.containsKey(user))
-            users.put(user, new User(user));
+            users.put(user, new User());
 
         User userObject = users.get(user);
         HashMap<String, String> addedValues = new HashMap<>();
@@ -38,14 +38,5 @@ public class CommandUpdate implements CommandI {
 
         String result = broadcastMessage.toString();
         return result.equals("") ? Optional.empty() : Optional.of(result);
-    }
-
-    @Override
-    public String toString() {
-        return "CommandUpdate{" +
-                "user='" + user + '\'' +
-                ", timestamp=" + timestamp +
-                ", values=" + values +
-                '}';
     }
 }
