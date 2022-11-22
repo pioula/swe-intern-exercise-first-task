@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CommandMakeFriendsTests {
     @DisplayName("Should add friends")
     @Test
-    void testRemovingFriends_WhenRun_ShouldAddFriends() {
+    void testMakingFriends_WhenRun_ShouldAddFriends() {
         final String USER_ID_1 = "user1";
         final String USER_ID_2 = "user2";
 
