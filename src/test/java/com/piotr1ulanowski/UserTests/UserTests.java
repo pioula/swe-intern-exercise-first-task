@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
+import java.util.Properties;
 
 class UserTests {
     @DisplayName("Should add a property with a bigger timestamp.")
@@ -16,8 +17,8 @@ class UserTests {
     void testAddingProperty_WhenBiggerTimestamp_ShouldUpdateTheProperty() {
         final String USER_ID = "test_id";
         final String PROPERTY_NAME = "test_property";
-        final UserProperty FIRST_UPDATE = new UserProperty("test", 1);
-        final UserProperty SECOND_UPDATE = new UserProperty("test", 2);
+        final UserProperty FIRST_UPDATE = new UserProperty("test1", 1);
+        final UserProperty SECOND_UPDATE = new UserProperty("test2", 2);
 
         User testUser = new User("test_id");
 
@@ -26,7 +27,8 @@ class UserTests {
 
         assertTrue(testUser.getProperties().containsKey(PROPERTY_NAME) &&
                 Objects.equals(testUser.getProperties().get(PROPERTY_NAME).getTimestamp(),
-                        SECOND_UPDATE.getTimestamp()));
+                        SECOND_UPDATE.getTimestamp()) &&
+                testUser.getProperties().get(PROPERTY_NAME).getName().equals(SECOND_UPDATE.getName()));
     }
 
 }
