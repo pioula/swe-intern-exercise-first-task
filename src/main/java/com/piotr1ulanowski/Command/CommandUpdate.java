@@ -1,9 +1,11 @@
 package com.piotr1ulanowski.Command;
 
+import com.piotr1ulanowski.Server.BroadcastMessage;
 import com.piotr1ulanowski.User.User;
 import com.piotr1ulanowski.User.UserProperty;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Optional;
 
 public class CommandUpdate implements CommandI {
@@ -31,8 +33,11 @@ public class CommandUpdate implements CommandI {
         });
 
         users.put(user, userObject);
+        BroadcastMessage broadcastMessage
+                = new BroadcastMessage(userObject.getFriends(), user, addedValues, timestamp);
 
-        return Optional.ofNullable(addedValues.toString() == null ? "" : addedValues.toString());
+        String result = broadcastMessage.toString();
+        return result.equals("") ? Optional.empty() : Optional.of(result);
     }
 
     @Override

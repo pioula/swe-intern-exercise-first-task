@@ -20,8 +20,10 @@ public class Server {
     public void startSimulation() {
         while (reader.hasLine()) {
             CommandI command = parser.deserialize(reader.readLine());
-            var t = command.execute(users);
-            t.ifPresent(System.out::println);
+            var broadcastMessage = command.execute(users);
+            broadcastMessage.ifPresent(System.out::println);
         }
     }
+
+    public void broadcast() {}
 }
