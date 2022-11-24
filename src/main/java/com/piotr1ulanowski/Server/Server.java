@@ -24,6 +24,4 @@ public class Server {
             broadcastMessage.ifPresent(System.out::println);
         }
     }
-
-    public void broadcast() {}
 }
